@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.forum.statistics.ForumStatisticTestSuite" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-01-22T21:27:27" hostname="DESKTOP-172RCRI" time="0.092">
+  <properties/>
+  <testcase name="whenZeroPostThenAvgIsZero" classname="com.kodilla.testing.forum.statistics.ForumStatisticTestSuite" time="0.089"/>
+  <testcase name="whenOneHundredUsersThenAvgIs" classname="com.kodilla.testing.forum.statistics.ForumStatisticTestSuite" time="0.001"/>
+  <testcase name="whenOneThousandPostThenAvgIsFiveHundred" classname="com.kodilla.testing.forum.statistics.ForumStatisticTestSuite" time="0.0"/>
+  <testcase name="whenZeroUsersThenAvgIsZero" classname="com.kodilla.testing.forum.statistics.ForumStatisticTestSuite" time="0.0"/>
+  <testcase name="whenCommentsPostIsLowerThanPost" classname="com.kodilla.testing.forum.statistics.ForumStatisticTestSuite" time="0.001"/>
+  <testcase name="whenZeroCommentsThenAvgIsZero" classname="com.kodilla.testing.forum.statistics.ForumStatisticTestSuite" time="0.0"/>
+  <testcase name="whenCommentsPostIsHigherThanPost" classname="com.kodilla.testing.forum.statistics.ForumStatisticTestSuite" time="0.0"/>
+  <system-out><![CDATA[Test Suite: begin
+Test case: begin
+Test case: end
+Test case: begin
+Test case: end
+Test case: begin
+Test case: end
+Test case: begin
+Test case: end
+Test case: begin
+Test case: end
+Test case: begin
+Test case: end
+Test case: begin
+Test case: end
+Test Suite: end
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
