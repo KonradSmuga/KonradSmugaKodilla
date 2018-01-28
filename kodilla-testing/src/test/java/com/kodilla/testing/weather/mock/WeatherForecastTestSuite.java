@@ -38,7 +38,8 @@ public class WeatherForecastTestSuite {
     @Test
     public void testCalculateForecastWithMock() {
         //Given
-        Temperatures temperaturesMock = mock(Temperatures.class);
+        Temperatures temperaturesMock = moc
+        k(Temperatures.class);
         HashMap<Integer, Double> temperaturesMap = new HashMap<Integer, Double>();
         temperaturesMap.put(0, 25.5);
         temperaturesMap.put(1, 26.2);
