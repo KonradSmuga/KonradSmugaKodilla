@@ -1,6 +1,7 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.array.ArrayOperations;
+import com.kodilla.stream.array.Asd;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 
@@ -10,6 +11,7 @@ import java.util.stream.IntStream;
 
 public class StreamMain implements ArrayOperations {
     public static void main(String[] args) {
+
         Map<Integer, ForumUser> theResulMapOfUsers = Forum.getUserList().stream()
 
                 .filter(s -> s.getSex() == 'M')
@@ -20,8 +22,13 @@ public class StreamMain implements ArrayOperations {
                 theResulMapOfUsers.entrySet().stream()
                 .map(entry -> "ID "+ entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
+
     }
 
 
 
-}
+
+    }
+
+
+

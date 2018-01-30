@@ -2,12 +2,12 @@ package com.kodilla.stream.array;
 
 import java.util.stream.IntStream;
 
-public interface ArrayOperations {
-    static double getAverage(int[] numbers) {
+public class Asd {
+   public   double getAverage(int[] numbers) {
         IntStream.range(0, numbers.length)
-                .forEach(n -> System.out.println(numbers[n]));
+                .forEach(System.out::print);
         double average = IntStream.range(1, numbers.length)
-                .mapToDouble(s -> numbers[s])
+                .mapToDouble(k -> numbers[k])
                 .average()
                 .getAsDouble();
 

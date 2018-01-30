@@ -1,25 +1,22 @@
 package com.kodilla.stream.world;
 
-
+import com.kodilla.stream.world.Continent;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
-import java.math.*;
+import java.util.stream.*;
 
 public class World implements PeopleQuantity {
-    Continent continent;
-    List<Continent> countriesOnTheWorld = new ArrayList<>();
 
-    public List<Continent> getNameOfTheContinent() {
-        countriesOnTheWorld.add(continent);
-        return countriesOnTheWorld;
+    private  List<Continent> countriesOnTheWorld = new ArrayList<>();
 
-    }
-
-    @Override
     public BigDecimal getPeopleQuantity() {
-            return  BigDecimal.ONE;
+        return countriesOnTheWorld.stream()
+                .flatMap(c->c.getCountries().stream())
+                .map(Country::getPeopleQuantity)
+                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
     }
+
+
 }
