@@ -1,13 +1,11 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.array.ArrayOperations;
-import com.kodilla.stream.array.Asd;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class StreamMain implements ArrayOperations {
     public static void main(String[] args) {
