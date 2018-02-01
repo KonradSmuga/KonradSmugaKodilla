@@ -7,16 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.*;
 
-public class World implements PeopleQuantity {
+public class World  {
 
-    private  List<Continent> countriesOnTheWorld = new ArrayList<>();
+    private  List<Continent> continents;
+
+    public World(List<Continent> continents) {
+        this.continents = continents;
+    }
 
     public BigDecimal getPeopleQuantity() {
-        return countriesOnTheWorld.stream()
-                .flatMap(c->c.getCountries().stream())
+        return continents.stream()
+                .flatMap(c->c.getCountry().stream())
                 .map(Country::getPeopleQuantity)
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
     }
-
-
 }

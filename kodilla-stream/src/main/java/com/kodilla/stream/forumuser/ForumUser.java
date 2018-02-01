@@ -4,20 +4,25 @@ import java.time.LocalDate;
 
 public class ForumUser {
     private int userId;
-    private char sex = 'M'/'F';
+    private String userName;
+    private char sex;
     private LocalDate birthDate;
     private int postCount;
 
-    public ForumUser(int userId, char sex, LocalDate birthDate, int postCount) {
+    public ForumUser(int userId, String userName, char sex, LocalDate birthDate, int postCount) {
         this.userId = userId;
+        this.userName = userName;
         this.sex = sex;
         this.birthDate = birthDate;
         this.postCount = postCount;
     }
 
-    public int getuserId()
-    {
-        return this.userId;
+    public int getUserId() {
+        return userId;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 
     public char getSex() {

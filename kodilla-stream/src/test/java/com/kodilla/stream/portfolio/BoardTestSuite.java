@@ -4,10 +4,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.stream.Collectors.toList;
 
 public class BoardTestSuite {
@@ -148,17 +150,16 @@ public class BoardTestSuite {
         //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-        List<Task> tasks = project.getTaskLists().stream()
+        double taskDate = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
-                .flatMap(tl -> tl.getTasks().stream())
-                .filter(t -> t.getCreated().isBefore(LocalDate.now()))
-                .collect(toList());
-
-        Double average = IntStream.range(0, tasks.size())
-                .map(s->s.)
-                .average();
+                .flatMap(v -> v.getTasks().stream())
+                .mapToLong(tl -> Period.between(tl.getCreated(), tl.getDeadline()).getDays())
+                .average()
+                .getAsDouble();
         //Then
-        Assert.assertEquals(, average);
+
+//czy ma byc period between, doczytac
+
     }
 }
 

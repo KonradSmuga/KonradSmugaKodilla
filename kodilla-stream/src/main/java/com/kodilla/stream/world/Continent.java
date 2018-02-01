@@ -6,23 +6,24 @@ import java.util.List;
 
 
 public class Continent {
-    Country country;
+    private String name;
 
-    private final List<Country> countries = new ArrayList<>();
+    private List<Country> country;
 
-    public Country getCountry() {
+
+    public Continent(String name, List<Country> country) {
+        this.name = name;
+        this.country = country;
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public List<Country> getCountry() {
         return country;
     }
 
-    public List<Country> getCountries() {
-        return countries;
-    }
 
-    @Override
-    public String toString() {
-        return "Continent{" +
-                "country=" + country +
-                ", nameOfTheContinent="  +
-                '}';
-    }
 }
