@@ -155,9 +155,7 @@ public class BoardTestSuite {
                 .average()
                 .getAsDouble();
         //Then
-
-//czy ma byc period between, doczytac
-
+        Assert.assertEquals(8, taskDate, 0.001);
     }
 }
 

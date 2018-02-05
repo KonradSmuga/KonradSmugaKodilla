@@ -10,12 +10,12 @@ public class ArrayOperationsTestSuite {
     public void testGetAverage() {
         //Given
 
-        int[] notes = {1, 3, 5, 11, 24, 13, 61, 23, 11, 2, 5, 6, 9, 1, 121, 32, 55, 72, 25,
-                11};
+        int[] notes = {1, 3, 5, 11, 24, 13, 61, 23, 11, 2, 5, 6, 9, 2, 1, 1, 1, 2, 8,
+                3};
         //When
         Double average = ArrayOperations.getAverage(notes);
 
         //then
-        Assert.assertEquals(new Double(0), average);
+        Assert.assertEquals(new Double(10.052631578947368), average);
     }
 }
