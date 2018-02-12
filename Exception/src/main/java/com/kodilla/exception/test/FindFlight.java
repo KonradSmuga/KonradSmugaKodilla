@@ -2,21 +2,24 @@ package com.kodilla.exception.test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class FindFlight {
-    private Flight flight;
+    private Map<String, Boolean> airportsAllowedToLand = new HashMap<>();
+
+    public FindFlight() {
+        airportsAllowedToLand.put("Polska", true);
+        airportsAllowedToLand.put("Niemcy", true);
+        airportsAllowedToLand.put("Norwegia", true);
+        airportsAllowedToLand.put("Dania", true);
+        airportsAllowedToLand.put("Kanada", false);
+    }
 
     public void findFlight(Flight flight) throws RouteNotFoundException {
-        Map<String, Boolean> airportName = new HashMap<>();
-        Set<String> keys = airportName.keySet();
 
-        for(String key : keys ){
-            String name = airportName.get(key).toString();
-
-            if(name.equals(false));
-            throw new RouteNotFoundException("There is no airport with provided name");
+        if (!airportsAllowedToLand.getOrDefault(flight.getArrivalAirpor(), Boolean.FALSE)) {
+            throw new RouteNotFoundException("z Lotniska " + flight.getDepartureAirport() + "Nie mozna poleciec na lotnisko " +
+                    flight.getArrivalAirpor());
         }
-
+        System.out.println("Znaleziono lot miedzy " + flight.getDepartureAirport() + " a " + flight.getArrivalAirpor());
     }
 }
