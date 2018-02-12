@@ -1,6 +1,6 @@
 package com.kodilla.spring.portfolio;
 
-import com.kodilla.spring.library.Library;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,12 +19,12 @@ public class BoardTestSuite {
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
         Board board = context.getBean(Board.class);
         //When
-        board.addToTaskDoneList("learn Java");
+        board.addToTaskDoneList("learn basics of java");
+        board.addToTaskInProgressList("Learning spring");
+        board.addToTaskToDoList("Learn MVC");
 
-
-
-        //Then
-
-
+        System.out.print(board.getDoneList());
+        boolean beanExist = context.containsBean("toDoList");
+        Assert.assertEquals(true, beanExist);
     }
 }

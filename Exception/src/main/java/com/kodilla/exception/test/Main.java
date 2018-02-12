@@ -1,5 +1,4 @@
 package com.kodilla.exception.test;
-// zmodyfikowac zadanie w taki sposob aby zawieralo mape lotow. Utworzyc hashmape, ktora key - numer lotu, value - lot. Singleton, przechowywanie tabeli
 public class Main {
     public static void main(String[] args) throws RouteNotFoundException {
 
