@@ -8,6 +8,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class BoardTestSuite {
@@ -18,13 +20,13 @@ public class BoardTestSuite {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
         Board board = context.getBean(Board.class);
+
         //When
         board.addToTaskDoneList("learn basics of java");
         board.addToTaskInProgressList("Learning spring");
-        board.addToTaskToDoList("Learn MVC");
+        board.addToTaskToDoList("ASD");
 
-        System.out.print(board.getDoneList());
-        boolean beanExist = context.containsBean("toDoList");
-        Assert.assertEquals(true, beanExist);
+        System.out.print(board.getToDoList());
+
     }
 }

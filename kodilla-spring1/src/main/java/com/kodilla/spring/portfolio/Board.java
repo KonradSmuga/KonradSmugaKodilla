@@ -1,5 +1,10 @@
 package com.kodilla.spring.portfolio;
 
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
 
     private TaskList toDoList;
@@ -12,21 +17,27 @@ public class Board {
         this.inProgressList = inProgressList;
         this.doneList = doneList;
     }
-    public TaskList addToTaskToDoList(String taskTitle) {
 
+    public TaskList addToTaskToDoList(String taskTitle) {
+        List<String> taskList = new ArrayList<>();
+        taskList.add(taskTitle);
         return new TaskList();
     }
 
     public TaskList addToTaskInProgressList(String taskTitle) {
-
+        List<String> tasks = new ArrayList<>();
+        tasks.add(taskTitle);
         return new TaskList();
     }
 
     public TaskList addToTaskDoneList(String taskTitle) {
-
+        List<String> tasks = new ArrayList<>();
+        tasks.add(taskTitle);
         return new TaskList();
     }
+
     public TaskList getToDoList() {
+
         return toDoList;
     }
 
