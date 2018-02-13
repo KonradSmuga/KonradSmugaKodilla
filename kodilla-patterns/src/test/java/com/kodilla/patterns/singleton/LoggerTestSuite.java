@@ -9,7 +9,6 @@ public class LoggerTestSuite {
     public void testLoadSettings() {
         //Given
         Logger.getInstance().log("log");
-
         //When
         String logger = Logger.getInstance().getLastLog();
         //Then
