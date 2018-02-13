@@ -27,6 +27,6 @@ public class BoardTestSuite {
         board.addToTaskToDoList("ASD");
 
         System.out.print(board.getToDoList());
-
+        System.out.print(board.getDoneList());
     }
 }

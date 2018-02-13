@@ -5,6 +5,7 @@ import org.junit.*;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -108,5 +109,35 @@ public class BookDirectoryTestSuite {
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
 
+    @Test
+    public void testListBooksInHandsOfNull() {
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> bookList = new ArrayList<>();
+        Book book1 = new Book("Hobbit", "Tolkien", 2002);
+        Book book2 = new Book("Harry Potter", "Rowling", 2000);
+        Book book3 = new Book("Way of the king", "Sanderson", 2008);
+        Book book4 = new Book("Lord of The Ring", "Tolkien", 1954);
+        Book book5 = new Book("Sirmarillion", "Tolkien", 1960);
 
+        bookList.add(book1);
+        bookList.add(book2);
+        bookList.add(book3);
+        bookList.add(book4);
+        bookList.add(book5);
+
+        List<LibraryUser> user = new ArrayList<>();
+        LibraryUser libraryUser = new LibraryUser("Konrad", "Smuga", "901295235");
+        user.add(libraryUser);
+
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(bookList);
+        //When
+        List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        //Then
+        assertEquals(5, theListOfBooks.size());
+
+
+    }
 }

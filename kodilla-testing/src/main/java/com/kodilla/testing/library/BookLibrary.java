@@ -23,14 +23,7 @@ public class BookLibrary {
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
         List<Book> bookList = new ArrayList<Book>();
-        if (bookList.size() == 0) {
-            return bookList;
-        }
+
         return bookList;
-    }
-
-
-    boolean rentABook(LibraryUser libraryUser, Book book) {
-        return true;
     }
 }
