@@ -9,9 +9,9 @@ public class LoggerTestSuite {
     public void testLoadSettings() {
         //Given
         Logger.getInstance().log("log");
-        String logger = Logger.getInstance().getLastLog();
+
         //When
-        System.out.println(logger);
+        String logger = Logger.getInstance().getLastLog();
         //Then
         Assert.assertEquals("log", logger);
     }
