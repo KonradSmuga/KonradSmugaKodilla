@@ -25,14 +25,15 @@ public final class Library extends Prototype {
         return books;
     }
 
+
     @Override
     public String toString() {
-        return "Library{" +
-                "name='" + name + '\'' +
-                ", books=" + books +
-                '}';
+        String s = "Library [" + name + "]\n";
+        for (Book book : books) {
+            s = s + book.toString() + "\n";
+        }
+        return s;
     }
-
     public Library shallowCopy() throws CloneNotSupportedException {
         return (Library) super.clone();
     }
