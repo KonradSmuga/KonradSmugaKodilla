@@ -5,7 +5,6 @@ import org.junit.*;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -111,6 +110,48 @@ public class BookDirectoryTestSuite {
 
     @Test
     public void testListBooksInHandsOfNull() {
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> bookList = new ArrayList<>();
+
+        List<LibraryUser> user = new ArrayList<>();
+        LibraryUser libraryUser = new LibraryUser("Konrad", "Smuga", "901295235");
+        user.add(libraryUser);
+
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(bookList);
+
+        //When
+        List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        //Then
+        assertEquals(0, theListOfBooks.size());
+    }
+
+    @Test
+    public void testListBooksInHandsOfOne() {
+        //Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> bookList = new ArrayList<>();
+        Book book1 = new Book("Hobbit", "Tolkien", 2002);
+        bookList.add(book1);
+
+        List<LibraryUser> user = new ArrayList<>();
+        LibraryUser libraryUser = new LibraryUser("Konrad", "Smuga", "901295235");
+        user.add(libraryUser);
+
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(bookList);
+
+        //When
+        List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        //Then
+        assertEquals(1, theListOfBooks.size());
+    }
+
+    @Test
+    public void testListBooksInHandsOfFive() {
         //Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
