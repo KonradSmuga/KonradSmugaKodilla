@@ -31,8 +31,6 @@ public class BoardTestSuite {
         List<String> task1 = board.getDoneList().getTasks();
         List<String> task2 = board.getInProgressList().getTasks();
 
-        board.getDoneList();
-
         //then
         Assert.assertEquals("Nauka spring", task.get(0));
         Assert.assertEquals("Nauka podstaw java", task1.get(0));
