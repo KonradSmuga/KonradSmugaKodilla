@@ -1,6 +1,7 @@
 package com.kodilla.patterns.prototype.library;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 
 public final class Book {
     final String title;
@@ -33,4 +34,6 @@ public final class Book {
                 ", publicationDate=" + publicationDate +
                 '}';
     }
+
+
 }

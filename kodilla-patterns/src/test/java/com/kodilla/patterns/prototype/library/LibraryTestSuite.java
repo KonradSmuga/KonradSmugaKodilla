@@ -1,8 +1,11 @@
 package com.kodilla.patterns.prototype.library;
 
+import com.kodilla.patterns.prototype.Board;
 import org.junit.Assert;
 import org.junit.Test;
+
 import java.time.LocalDate;
+
 public class LibraryTestSuite {
 
     @Test
@@ -27,9 +30,25 @@ public class LibraryTestSuite {
         } catch (CloneNotSupportedException e) {
             System.out.println(e);
         }
+
+        Library deepClonedLibrary = null;
+        try {
+            deepClonedLibrary = library.deepCopy();
+            deepClonedLibrary.setName("biblioteka w Poznaniu");
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+
+        }
+        //when
+        library.getBooks().remove(book2);
+        //then
         System.out.println(library);
         System.out.println(clonedLibrary);
-        Assert.assertEquals(4, library.getBooks().size());
-        Assert.assertEquals(4, clonedLibrary.getBooks().size());
+        System.out.println(deepClonedLibrary);
+        Assert.assertEquals(3, library.getBooks().size());
+        Assert.assertEquals(3, clonedLibrary.getBooks().size());
+        Assert.assertEquals(4, deepClonedLibrary.getBooks().size());
+        Assert.assertEquals(clonedLibrary.getBooks(), library.getBooks());
+        Assert.assertNotEquals(deepClonedLibrary.getBooks(), library.getBooks());
     }
 }
