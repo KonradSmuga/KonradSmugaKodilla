@@ -16,22 +16,25 @@ public class Board {
         this.doneList = doneList;
     }
 
-    public TaskList addToTaskToDoList(String taskTitle) {
-        List<String> taskList = new ArrayList<>();
-        taskList.add(taskTitle);
-        return new TaskList();
+    public TaskList addToDoList(String taskTitle) {
+
+        toDoList.getTasks().add(taskTitle);
+
+        return toDoList;
     }
 
-    public TaskList addToTaskInProgressList(String taskTitle) {
-        List<String> tasks = new ArrayList<>();
-        tasks.add(taskTitle);
-        return new TaskList();
+    public TaskList addInProgressList(String taskTitle) {
+
+        inProgressList.getTasks().add(taskTitle);
+
+        return inProgressList;
     }
 
-    public TaskList addToTaskDoneList(String taskTitle) {
-        List<String> tasks = new ArrayList<>();
-        tasks.add(taskTitle);
-        return new TaskList();
+    public TaskList addDoneList(String taskTitle) {
+
+        doneList.getTasks().add(taskTitle);
+
+        return doneList;
     }
 
     public TaskList getToDoList() {
@@ -40,11 +43,21 @@ public class Board {
     }
 
     public TaskList getInProgressList() {
+
         return inProgressList;
     }
 
     public TaskList getDoneList() {
+
         return doneList;
     }
 
+    @Override
+    public String toString() {
+        return "Board{" +
+                "toDoList=" + toDoList +
+                ", inProgressList=" + inProgressList +
+                ", doneList=" + doneList +
+                '}';
+    }
 }

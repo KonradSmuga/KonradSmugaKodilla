@@ -131,14 +131,12 @@ public class BookDirectoryTestSuite {
         LibraryUser libraryUser = new LibraryUser("Konrad", "Smuga", "901295235");
         user.add(libraryUser);
 
-
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(bookList);
+
         //When
-        List<Book> theListOfBooks =  bookLibrary.listBooksInHandsOf(libraryUser);
+        List<Book> theListOfBooks = bookLibrary.listBooksInHandsOf(libraryUser);
 
         //Then
-        assertEquals(5, theListOfBooks);
-
-
+        assertEquals(5, theListOfBooks.size());
     }
 }
