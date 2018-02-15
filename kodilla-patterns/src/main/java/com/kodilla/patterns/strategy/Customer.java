@@ -5,6 +5,7 @@ public class Customer {
     protected BuyPredictor buyPredictor;
 
     public Customer(String name) {
+
         this.name = name;
     }
 

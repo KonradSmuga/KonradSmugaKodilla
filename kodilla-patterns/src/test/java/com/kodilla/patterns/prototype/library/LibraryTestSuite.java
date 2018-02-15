@@ -42,9 +42,6 @@ public class LibraryTestSuite {
         //when
         library.getBooks().remove(book2);
         //then
-        System.out.println(library);
-        System.out.println(clonedLibrary);
-        System.out.println(deepClonedLibrary);
         Assert.assertEquals(3, library.getBooks().size());
         Assert.assertEquals(3, clonedLibrary.getBooks().size());
         Assert.assertEquals(4, deepClonedLibrary.getBooks().size());

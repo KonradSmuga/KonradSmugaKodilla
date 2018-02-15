@@ -1,10 +1,9 @@
 package com.kodilla.patterns.strategy.social;
 
-import com.kodilla.patterns.strategy.social.publisher.FacebookPublisher;
 import com.kodilla.patterns.strategy.social.publisher.TwitterPublisher;
-import com.kodilla.patterns.strategy.social.userType.Millenials;
-import com.kodilla.patterns.strategy.social.userType.YGeneration;
-import com.kodilla.patterns.strategy.social.userType.ZGeneration;
+import com.kodilla.patterns.strategy.social.users.Millenials;
+import com.kodilla.patterns.strategy.social.users.YGeneration;
+import com.kodilla.patterns.strategy.social.users.ZGeneration;
 import org.junit.Assert;
 import org.junit.Test;
 
