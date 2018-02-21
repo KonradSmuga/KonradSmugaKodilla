@@ -66,6 +66,10 @@ public final class Bigmac {
         return ingredients;
     }
 
+    public enum Ingredients {
+        SALAT, ORION, BACON, PICKLE, CHILLI, MUSHROOMS, SHRIMPS, CHEESE
+    }
+
     @Override
     public String toString() {
         return "Bigmac{" +
@@ -75,9 +79,7 @@ public final class Bigmac {
                 ", ingredients=" + ingredients +
                 '}';
     }
-    public enum Ingredients {
-        SALAT, ORION, BACON, PICKLE, CHILLI, MUSHROOMS, SHRIMPS, CHEESE
-    }
+
 
 }
 
