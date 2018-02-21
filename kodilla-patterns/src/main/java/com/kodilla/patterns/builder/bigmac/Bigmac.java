@@ -8,6 +8,9 @@ public final class Bigmac {
     private final int burgers;
     private final String sauce;
     private final List<String> ingredients;
+    public enum Ingredients {
+        SALAT, ORION, BACON, PICKLE, CHILLI, MUSHROOMS, SHRIMPS, CHEESE
+    }
 
     public static class BigmacBuilder {
         private String roll;
