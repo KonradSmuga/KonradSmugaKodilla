@@ -10,9 +10,9 @@ public class BigMacTestSuite {
         //Given
         Bigmac bigmac = new Bigmac.BigmacBuilder()
                 .burgers(1)
-                .ingredient(String.valueOf(Bigmac.Ingredients.BACON))
-                .ingredient(String.valueOf(Bigmac.Ingredients.ORION))
-                .ingredient(String.valueOf(Bigmac.Ingredients.CHILLI))
+                .ingredient(Bigmac.Ingredients.BACON)
+                .ingredient(Bigmac.Ingredients.CHEESE)
+                .ingredient(Bigmac.Ingredients.ORION)
                 .sauce("spicy")
                 .roll("with sesame")
                 .build();

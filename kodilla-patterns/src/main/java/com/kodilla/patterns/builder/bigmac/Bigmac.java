@@ -7,7 +7,8 @@ public final class Bigmac {
     private final String roll;
     private final int burgers;
     private final String sauce;
-    private final List<String> ingredients;
+    private final List<Ingredients> ingredients;
+
     public enum Ingredients {
         SALAT, ORION, BACON, PICKLE, CHILLI, MUSHROOMS, SHRIMPS, CHEESE
     }
@@ -16,7 +17,7 @@ public final class Bigmac {
         private String roll;
         private int burgers;
         private String sauce;
-        private List<String> ingredients = new ArrayList<>();
+        private List<Ingredients> ingredients = new ArrayList<>();
 
         public BigmacBuilder roll(String roll) {
             this.roll = roll;
@@ -33,8 +34,8 @@ public final class Bigmac {
             return this;
         }
 
-        public BigmacBuilder ingredient(String ingredient) {
-            ingredients.add(ingredient);
+        public BigmacBuilder ingredient(Enum Ingredients) {
+            ingredients.add((Bigmac.Ingredients) Ingredients);
             return this;
         }
 
@@ -45,11 +46,11 @@ public final class Bigmac {
 
     }
 
-    private Bigmac(String roll, int burgers, String sauce, List<String> ingredients) {
+    private Bigmac(String roll, int burgers, String sauce, List<Ingredients> ingredients) {
         this.roll = roll;
         this.burgers = burgers;
         this.sauce = sauce;
-        this.ingredients = new ArrayList<>(ingredients);
+        this.ingredients = new ArrayList<Ingredients>(ingredients);
     }
 
     public String getRoll() {
@@ -64,7 +65,7 @@ public final class Bigmac {
         return sauce;
     }
 
-    public List<String> getIngredients() {
+    public List<Ingredients> getIngredients() {
         return ingredients;
     }
 
