@@ -9,9 +9,6 @@ public final class Bigmac {
     private final String sauce;
     private final List<Ingredients> ingredients;
 
-    public enum Ingredients {
-        SALAT, ORION, BACON, PICKLE, CHILLI, MUSHROOMS, SHRIMPS, CHEESE
-    }
 
     public static class BigmacBuilder {
         private String roll;
@@ -78,4 +75,9 @@ public final class Bigmac {
                 ", ingredients=" + ingredients +
                 '}';
     }
+    public enum Ingredients {
+        SALAT, ORION, BACON, PICKLE, CHILLI, MUSHROOMS, SHRIMPS, CHEESE
+    }
+
 }
+
