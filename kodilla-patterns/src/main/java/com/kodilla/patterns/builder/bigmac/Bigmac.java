@@ -31,11 +31,10 @@ public final class Bigmac {
             return this;
         }
 
-        public BigmacBuilder ingredient(Enum Ingredients) {
-            ingredients.add((Bigmac.Ingredients) Ingredients);
+        public BigmacBuilder ingredient(Ingredients ingredient) {
+            ingredients.add(ingredient);
             return this;
         }
-
 
         public Bigmac build() {
             return new Bigmac(roll, burgers, sauce, ingredients);
