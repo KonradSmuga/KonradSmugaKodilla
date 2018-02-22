@@ -39,7 +39,6 @@ public final class Bigmac {
         public Bigmac build() {
             return new Bigmac(roll, burgers, sauce, ingredients);
         }
-
     }
 
     private Bigmac(String roll, int burgers, String sauce, List<Ingredients> ingredients) {
@@ -78,7 +77,5 @@ public final class Bigmac {
                 ", ingredients=" + ingredients +
                 '}';
     }
-
-
 }
 

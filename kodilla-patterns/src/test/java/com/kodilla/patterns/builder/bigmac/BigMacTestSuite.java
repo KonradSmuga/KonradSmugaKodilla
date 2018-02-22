@@ -1,6 +1,5 @@
 package com.kodilla.patterns.builder.bigmac;
 
-import com.sun.org.apache.bcel.internal.generic.SALOAD;
 import org.junit.Assert;
 import org.junit.Test;
 
