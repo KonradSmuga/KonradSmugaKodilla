@@ -9,11 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany() {
@@ -57,7 +62,53 @@ public class CompanyDaoTestSuite {
             companyDao.delete(dataMaestersId);
             companyDao.delete(greyMatterId);
         } catch (Exception e) {
-            //    //do nothing
-            //}
+
         }
-    }  }
+
+    }
+
+    @Test
+    public void testFinding() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+
+        softwareMachine.getEmployees().add(johnSmith);
+        dataMaesters.getEmployees().add(stephanieClarckson);
+        greyMatter.getEmployees().add(lindaKovalsky);
+
+        johnSmith.getCompanies().add(softwareMachine);
+        stephanieClarckson.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(greyMatter);
+
+        //When
+        companyDao.save(softwareMachine);
+        companyDao.save(dataMaesters);
+        companyDao.save(greyMatter);
+        List<Employee> employeesByGivenLastname = employeeDao.retrieveName("Kovalsky");
+        List<Company> threeFirstDigitCompany = companyDao.retrieveCompanyNameWithFirstLetters("gre");
+
+        //Then
+        Assert.assertEquals(14, employeesByGivenLastname.size());
+        Assert.assertEquals(14, threeFirstDigitCompany.size());
+
+        //CleanUp
+        try {
+            companyDao.delete(softwareMachine.getId());
+            companyDao.delete(dataMaesters.getId());
+            companyDao.delete(greyMatter.getId());
+            employeeDao.delete(johnSmith.getId());
+            employeeDao.delete(lindaKovalsky.getId());
+            employeeDao.delete(stephanieClarckson.getId());
+        } catch (Exception e) {
+
+        }
+
+    }
+}
+
