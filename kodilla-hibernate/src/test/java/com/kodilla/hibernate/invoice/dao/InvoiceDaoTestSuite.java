@@ -56,6 +56,9 @@ public class InvoiceDaoTestSuite {
         invoiceDao.save(invoice);
         //then
         Assert.assertNotEquals(0, invoice.getId());
+        Assert.assertEquals(4, invoice.getItems().size());
+        Assert.assertEquals(item, invoice.getItems().get(0));
+        Assert.assertEquals(item1, invoice.getItems().get(1));
         //CleanUp
         try {
             invoiceDao.delete(invoice);

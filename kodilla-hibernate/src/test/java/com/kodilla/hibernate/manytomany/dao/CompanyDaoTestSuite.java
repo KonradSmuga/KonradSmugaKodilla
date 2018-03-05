@@ -97,6 +97,7 @@ public class CompanyDaoTestSuite {
         Assert.assertEquals(14, employeesByGivenLastname.size());
         Assert.assertEquals(14, threeFirstDigitCompany.size());
 
+
         //CleanUp
         try {
             companyDao.delete(softwareMachine.getId());
