@@ -22,7 +22,6 @@ public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
 
-
     @Test
     public void testInvoiceDaoSave() {
         Product product = new Product("Telephone");
