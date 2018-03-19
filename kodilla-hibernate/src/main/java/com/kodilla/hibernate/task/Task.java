@@ -7,9 +7,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-
-
-
 @NamedQueries({
         @NamedQuery(
                 name = "Task.retrieveLongTasks",
@@ -22,7 +19,6 @@ import java.util.Date;
         @NamedQuery(
                 name = "Task.retrieveTasksWithDurationLongerThan",
                 query = "FROM Task WHERE duration > :DURATION"
-
         )
 })
 @NamedNativeQuery(

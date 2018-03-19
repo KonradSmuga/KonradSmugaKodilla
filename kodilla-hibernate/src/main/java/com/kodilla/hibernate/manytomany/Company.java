@@ -9,7 +9,6 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES" +
                 " WHERE LEFT(COMPANY_NAME, 3) = :LETTERS",
         resultClass = Company.class
-
 )
 @Entity
 @Table(name = "COMPANIES")

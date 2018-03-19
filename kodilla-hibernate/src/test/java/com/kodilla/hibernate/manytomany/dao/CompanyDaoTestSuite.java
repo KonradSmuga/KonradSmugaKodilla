@@ -7,12 +7,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Rollback
+@Transactional
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
@@ -55,16 +59,6 @@ public class CompanyDaoTestSuite {
         Assert.assertNotEquals(0, softwareMachineId);
         Assert.assertNotEquals(0, dataMaestersId);
         Assert.assertNotEquals(0, greyMatterId);
-
-        //CleanUp
-        try {
-            companyDao.delete(softwareMachineId);
-            companyDao.delete(dataMaestersId);
-            companyDao.delete(greyMatterId);
-        } catch (Exception e) {
-
-        }
-
     }
 
     @Test
@@ -94,22 +88,8 @@ public class CompanyDaoTestSuite {
         List<Company> threeFirstDigitCompany = companyDao.retrieveCompanyNameWithFirstLetters("gre");
 
         //Then
-        Assert.assertEquals(14, employeesByGivenLastname.size());
-        Assert.assertEquals(14, threeFirstDigitCompany.size());
-
-
-        //CleanUp
-        try {
-            companyDao.delete(softwareMachine.getId());
-            companyDao.delete(dataMaesters.getId());
-            companyDao.delete(greyMatter.getId());
-            employeeDao.delete(johnSmith.getId());
-            employeeDao.delete(lindaKovalsky.getId());
-            employeeDao.delete(stephanieClarckson.getId());
-        } catch (Exception e) {
-
-        }
-
+        Assert.assertEquals(1, employeesByGivenLastname.size());
+        Assert.assertEquals(1, threeFirstDigitCompany.size());
     }
 }
 
