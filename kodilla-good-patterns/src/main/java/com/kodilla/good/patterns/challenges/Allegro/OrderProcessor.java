@@ -1,5 +1,7 @@
 package com.kodilla.good.patterns.challenges.Allegro;
 
+import com.kodilla.good.patterns.challenges.RentRequest;
+
 public class OrderProcessor {
     private InformationService informationService;
     private RentalService rentalService;
@@ -12,16 +14,17 @@ public class OrderProcessor {
         this.rentalService = rentalService;
         this.orderRepository = orderRepository;
     }
-
-    public RentalDto process(final RentRequest rentRequest) {
+/*
+    public OrderDto process(final RentRequest rentRequest) {
         boolean isRented = rentalService.createRental(rentRequest.getUser(), rentRequest.getFrom(),
                 rentRequest.getTo());
         if(isRented) {
             informationService.inform(rentRequest.getUser());
             orderRepository.createRental(rentRequest.getUser(), rentRequest.getFrom(), rentRequest.getTo());
-            return new RentalDto(rentRequest.getUser(), true);
+            return new OrderDto(rentRequest.getUser(), true);
         } else {
-            return new RentalDto(rentRequest.getUser(), false);
+            return new OrderDto(rentRequest.getUser(), false);
         }
     }
+    */
 }
