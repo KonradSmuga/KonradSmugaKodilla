@@ -7,7 +7,7 @@ import java.util.List;
 
 @NamedQuery(
         name = "Employee.retrieveName",
-        query = "FROM Employee WHERE lastName = :LASTNAME"
+        query = "FROM Employee WHERE lastName LIKE CONCAT(:LASTNAME, '%')"
 )
 
 
