@@ -54,7 +54,7 @@ public class PizzaOrderTestSuite {
         //When
         String description = pizzaOrder.getPizzaDescription();
         //Then
-        assertEquals("Basic Pizza with chesse and tomato sauce with black olive", description);
+        assertEquals("Basic Pizza with chesse and tomato sauce + black olive", description);
     }
 
     @Test
@@ -102,7 +102,7 @@ public class PizzaOrderTestSuite {
         //When
         String description = pizzaOrder.getPizzaDescription();
         //Then
-        assertEquals("Basic Pizza with chesse and tomato sauce with pineapple", description);
+        assertEquals("Basic Pizza with chesse and tomato sauce + pineapple", description);
     }
 
     @Test
@@ -126,6 +126,30 @@ public class PizzaOrderTestSuite {
         //When
         String description = pizzaOrder.getPizzaDescription();
         //Then
-        assertEquals("Basic Pizza with chesse and tomato sauce with salami", description);
+        assertEquals("Basic Pizza with chesse and tomato sauce + salami", description);
+    }
+
+    @Test
+    public void testSalamiAndPineapplePizzaGetDescription() {
+        //Given
+        PizzaOrder pizzaOrder = new BasicPizzaOrder();
+        pizzaOrder = new SalamiPizzaDecorator(pizzaOrder);
+        pizzaOrder = new PineapplePizzaDecorator(pizzaOrder);
+        //When
+        String description = pizzaOrder.getPizzaDescription();
+        //Then
+        assertEquals("Basic Pizza with chesse and tomato sauce + salami + pineapple", description);
+    }
+    @Test
+    public void testSalamiAndPineapplePizzagetPrice() {
+        //Given
+        PizzaOrder pizzaOrder = new BasicPizzaOrder();
+        pizzaOrder = new SalamiPizzaDecorator(pizzaOrder);
+        pizzaOrder = new PineapplePizzaDecorator(pizzaOrder);
+        //When
+        BigDecimal price = pizzaOrder.getPrice();
+
+        //Then
+        assertEquals(new BigDecimal(25), price);
     }
 }

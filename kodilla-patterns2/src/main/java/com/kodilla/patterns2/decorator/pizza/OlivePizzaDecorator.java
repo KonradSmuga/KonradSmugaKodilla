@@ -14,6 +14,6 @@ public class OlivePizzaDecorator extends AbstractPizzaDecorator {
 
     @Override
     public String getPizzaDescription() {
-        return super.getPizzaDescription() + " with black olive";
+        return super.getPizzaDescription() + " + black olive";
     }
 }

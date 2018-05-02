@@ -15,6 +15,6 @@ public class SalamiPizzaDecorator extends AbstractPizzaDecorator {
 
     @Override
     public String getPizzaDescription() {
-        return super.getPizzaDescription() + " with salami";
+        return super.getPizzaDescription() + " + salami";
     }
 }

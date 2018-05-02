@@ -14,6 +14,6 @@ public class PineapplePizzaDecorator extends AbstractPizzaDecorator {
 
     @Override
     public String getPizzaDescription() {
-        return super.getPizzaDescription()+ " with pineapple";
+        return super.getPizzaDescription()+ " + pineapple";
     }
 }
