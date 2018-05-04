@@ -6,14 +6,14 @@ import java.util.List;
 
 public class TaskQueue implements Observable {
 
-    private final String userName;
+    private final String taskName;
     private final List<Observer> mentors;
     private final List<String> taskList;
 
-    public TaskQueue(String userName) {
+    public TaskQueue(String taskName) {
         taskList = new ArrayList<>();
         mentors = new ArrayList<>();
-        this.userName = userName;
+        this.taskName = taskName;
     }
 
     public void addTask(String task) {
@@ -24,7 +24,7 @@ public class TaskQueue implements Observable {
 
     @Override
     public void registerObserver(Mentor mentor) {
-
+        mentors.add(mentor);
     }
 
     @Override
@@ -37,5 +37,13 @@ public class TaskQueue implements Observable {
     @Override
     public void removeObserver(Mentor mentor) {
         mentors.remove(mentor);
+    }
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public List<String> getTaskList() {
+        return taskList;
     }
 }
