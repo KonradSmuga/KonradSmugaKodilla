@@ -25,7 +25,7 @@ public class TaskQueueTestSuite {
         //When
         konrad.addTask("learn observer at home");
         karolina.addTask("learn facade at home");
-        max.addTask("learn obserwer at work");
+        max.addTask("learn observer at work");
         alicja.addTask("learn facade at wor");
 
         //Then
