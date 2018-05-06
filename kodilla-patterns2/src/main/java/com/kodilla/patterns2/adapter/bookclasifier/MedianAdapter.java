@@ -15,8 +15,8 @@ public class MedianAdapter extends MedianAdaptee implements Classifier {
     public int publicationYearMedian(Set<com.kodilla.patterns2.adapter.bookclasifier.librarya.Book> bookSet) {
         Map<BookSignature, Book> books = new HashMap<>();
 
-
-
-        return 0;
+    return Integer.parseInt(null);
     }
+
+
 }
