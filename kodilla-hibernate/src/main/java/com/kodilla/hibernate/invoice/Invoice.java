@@ -1,7 +1,8 @@
 package com.kodilla.hibernate.invoice;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +43,6 @@ public class Invoice {
     public void setNumber(String number) {
         this.number = number;
     }
-
 
     @OneToMany
     public List<Item> getItems() {
