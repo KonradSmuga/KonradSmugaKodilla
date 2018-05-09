@@ -17,11 +17,12 @@ public class MedianAdapterTestSuite {
     public void testPublicationYearMedian() {
         // Given
         Book book1 = new Book("Tolkien", "Hobbit", 2000, "Signature");
-        Book book2 = new Book("Tolkien", "Lord of the rings", 2004, "Signature");
+        Book book2 = new Book("Tolkien", "Lord of the rings", 2006, "Signature");
+        Book book3 = new Book("Tolkien", "Lord of the rings", 2014, "Signature");
         Set<Book> libraryA = new HashSet<>();
         libraryA.add(book1);
         libraryA.add(book2);
-
+        libraryA.add(book3);
 
         MedianAdapter medianAdapter = new MedianAdapter();
 
@@ -29,7 +30,7 @@ public class MedianAdapterTestSuite {
         int publicationYearMedian = medianAdapter.publicationYearMedian(libraryA);
 
         // Then
-        assertEquals(2002, publicationYearMedian);
+        assertEquals(2006, publicationYearMedian);
     }
 }
 
