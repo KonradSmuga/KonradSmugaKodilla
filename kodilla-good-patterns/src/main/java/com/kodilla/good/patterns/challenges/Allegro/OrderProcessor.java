@@ -1,30 +1,25 @@
 package com.kodilla.good.patterns.challenges.Allegro;
 
-import com.kodilla.good.patterns.challenges.RentRequest;
-
 public class OrderProcessor {
     private InformationService informationService;
-    private RentalService rentalService;
+    private OrderService orderService;
     private OrderRepository orderRepository;
 
-    public OrderProcessor(final InformationService informationService,
-                          final RentalService rentalService,
-                          final OrderRepository orderRepository) {
+    public OrderProcessor(InformationService informationService, OrderService orderService, OrderRepository orderRepository) {
         this.informationService = informationService;
-        this.rentalService = rentalService;
+        this.orderService = orderService;
         this.orderRepository = orderRepository;
     }
-/*
-    public OrderDto process(final RentRequest rentRequest) {
-        boolean isRented = rentalService.createRental(rentRequest.getUser(), rentRequest.getFrom(),
-                rentRequest.getTo());
-        if(isRented) {
-            informationService.inform(rentRequest.getUser());
-            orderRepository.createRental(rentRequest.getUser(), rentRequest.getFrom(), rentRequest.getTo());
-            return new OrderDto(rentRequest.getUser(), true);
+
+    public OrderDto process(final OrderRequest orderRequest) {
+        boolean isOrdered = orderService.order(orderRequest.getUser(), orderRequest.getItem(), orderRequest.getTimeOfOrder());
+
+        if (isOrdered) {
+            informationService.inform(orderRequest.getUser());
+            orderRepository.createOrder(orderRequest.getUser(), orderRequest.getItem(), orderRequest.getTimeOfOrder());
+            return new OrderDto(orderRequest.getUser(), orderRequest.getItem(), true);
         } else {
-            return new OrderDto(rentRequest.getUser(), false);
+            return new OrderDto(orderRequest.getUser(), orderRequest.getItem(), false);
         }
     }
-    */
 }

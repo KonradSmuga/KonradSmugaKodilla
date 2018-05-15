@@ -1,10 +1,7 @@
 package com.kodilla.good.patterns.challenges.Allegro;
 
-import com.kodilla.good.patterns.challenges.User;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public interface OrderRepository {
-
-    boolean createRental(User user, LocalDateTime from, LocalDateTime to);
+    void createOrder(User user, Item item, LocalDate timeOfOrder);
 }
